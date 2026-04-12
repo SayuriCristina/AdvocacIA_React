@@ -5,8 +5,8 @@ import { buscar } from '@/services/auth.service';
 import { useState, useEffect, useContext } from 'react';
 
 export interface Alternativa {
-    letra: string;
-    texto: string;
+    letra?: string;
+    texto?: string;
 }
 
 export interface UseQuestaoReturn {

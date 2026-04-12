@@ -1,5 +1,5 @@
 import { AuthContext } from "@/context/AuthContext";
-import { Brain, LogOut, User } from "lucide-react";
+import { LogOut, User } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastAlert } from "../feedback/ToastAlert";
@@ -24,23 +24,24 @@ function Navbar() {
     }, []);
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-            scrolled 
-                ? 'bg-white shadow-md' 
-                : 'bg-gradient-to-b from-white/95 to-white/80'
-        }`}>
-            <div className="max-w-7xl mx-auto px-6 py-4">
-                <div className="flex items-center justify-between font-title">
-                    <Link to='/' className="flex items-center gap-3 group">
-                        <div className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
-                            <div className="relative bg-gradient-to-br from-indigo-600 to-purple-700 p-2 rounded-lg">
-                                <Brain className="w-6 h-6 text-white" />
-                            </div>
-                        </div>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-700 bg-clip-text text-transparent">
-                                ADVOCACIA
-                            
+        <nav className={`fixed top-0 w-full z-50 font-sans
+            ${scrolled
+                ? 'bg-navy-950 border-b border-gold/20 shadow-[0_4px_40px_rgba(0,0,0,0.4)]'
+                : 'bg-gradient-to-b from-navy-950 to-navy-950/90'
+            }`}
+        >
+            {/* Linha dourada no topo */}
+            <div className="h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent" />
+
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="flex items-center justify-between h-16">
+
+                    {/* Logo */}
+                    <Link to="/">
+                        <div className="flex flex-col gap-[2px]">
+                            <span className="font-title font-bold text-[1.3rem] tracking-[0.18em] uppercase text-gold leading-none">
+                                Advocac<span className="text-gold-light italic">IA</span>
+                            </span>
                         </div>
                     </Link>
 
@@ -50,18 +51,25 @@ function Navbar() {
                             <>
                                 <Link
                                     to="/perfil"
-                                    className="flex items-center gap-2 px-4 py-2 text-gray-700 font-medium hover:text-indigo-600 transition-colors duration-200 relative group"
+                                    className="group relative flex items-center gap-[0.4rem]
+                                        px-[1.1rem] py-2 text-[0.68rem] font-medium tracking-[0.2em]
+                                        uppercase text-silver hover:text-gold transition-colors duration-300"
                                 >
                                     <User className="w-4 h-4" />
                                     <span>Perfil</span>
-                                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:w-full transition-all duration-300"></div>
+                                    <span className="absolute bottom-0 left-[1.1rem] right-[1.1rem] h-[1px]
+                                        bg-gold scale-x-0 origin-left
+                                        transition-transform duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+                                        group-hover:scale-x-100" />
                                 </Link>
 
-                                <div className="h-6 w-px bg-gray-200"></div>
+                                <div className="w-px h-5 bg-gradient-to-b from-transparent via-navy-700 to-transparent mx-1" />
 
                                 <button
                                     onClick={logout}
-                                    className="flex items-center gap-2 px-4 py-2 text-gray-700 font-medium hover:text-red-600 transition-colors duration-200 rounded-lg hover:bg-red-50"
+                                    className="flex items-center gap-[0.4rem] px-[1.1rem] py-2
+                                        text-[0.68rem] font-medium tracking-[0.2em] uppercase
+                                        text-steel hover:text-red-400 transition-colors duration-300"
                                 >
                                     <LogOut className="w-4 h-4" />
                                     <span>Sair</span>
@@ -71,25 +79,39 @@ function Navbar() {
                             <>
                                 <Link
                                     to="/login"
-                                    className="px-5 py-2 text-gray-700 font-medium hover:text-indigo-600 transition-colors duration-200 relative group"
+                                    className="group relative flex items-center
+                                        px-[1.1rem] py-2 text-[0.68rem] font-medium tracking-[0.2em]
+                                        uppercase text-silver hover:text-gold transition-colors duration-300"
                                 >
                                     <span>Entrar</span>
-                                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-indigo-600 to-purple-600 group-hover:w-full transition-all duration-300"></div>
+                                    <span className="absolute bottom-0 left-[1.1rem] right-[1.1rem] h-[1px]
+                                        bg-gold scale-x-0 origin-left
+                                        transition-transform duration-[350ms] ease-[cubic-bezier(0.4,0,0.2,1)]
+                                        group-hover:scale-x-100" />
                                 </Link>
+
+                                <div className="w-px h-5 bg-gradient-to-b from-transparent via-navy-700 to-transparent mx-2" />
 
                                 <Link
                                     to="/register"
-                                    className="px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-indigo-500/30 transform hover:scale-105 transition-all duration-200"
+                                    className="[clip-path:var(--clip-chamfer)] inline-flex items-center
+                                        px-6 py-[0.55rem] text-[0.66rem] font-medium tracking-[0.22em]
+                                        uppercase text-navy-950
+                                        bg-gradient-to-r from-gold via-gold-light to-gold bg-[length:200%_auto]
+                                        hover:bg-right
+                                        hover:shadow-[0_4px_20px_rgba(201,168,76,0.4)]
+                                        transition-all duration-300"
                                 >
                                     Criar Conta
                                 </Link>
                             </>
                         )}
                     </div>
+
                 </div>
             </div>
         </nav>
-    )
+    );
 }
 
-export default Navbar
+export default Navbar;
