@@ -7,7 +7,7 @@ function Footer() {
 
     return (
         <>
-            <footer className="text-white shadow-xl mt-16">
+            <footer className="text-white shadow-xl bottom-0">
                 <SpotlightCard className="custom-spotlight-card bg-navy-950" spotlightColor="rgba(46, 64, 96, 1)">
                     <div className="max-w-7xl mx-auto">
                         <div className="flex flex-col md:flex-row justify-between items-center gap-6">

@@ -21,7 +21,7 @@ function App() {
           <div className="flex flex-col min-h-screen bg-linear-to-br from-blue-50 via-white to-blue-50">
             <Navbar />
 
-            <main className="grow pt-24">
+            <main className="grow flex-1">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/*" element={<Home />} />
@@ -32,7 +32,6 @@ function App() {
                 <Route path="/quizform" element={<QuizForm />} />
               </Routes>
             </main>
-
             <Footer />
           </div>
         </BrowserRouter>
