@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Brain, Trophy, Zap, ChevronRight, Sparkles, FileQuestionMark, ArrowRight, CheckCircle2, XCircle, BookMarked } from 'lucide-react';
+import { Brain, Trophy, Zap, ChevronRight, FileQuestionMark, ArrowRight, CheckCircle2, XCircle, BookMarked } from 'lucide-react';
 import { AuthContext } from '@/context/AuthContext';
 import { Link } from 'react-router-dom';
 import { useQuestao } from '@/hooks/useQuestao';
@@ -145,7 +145,7 @@ function Home() {
                         to="/quizform"
                         className="group relative px-8 sm:px-10 py-3 sm:py-4 bg-transparent border border-gold text-gold font-sans font-medium overflow-hidden flex w-full sm:w-auto justify-center"
                       >
-                        <span className="relative z-10 flex items-center gap-2 sm:gap-3">
+                        <span className="relative z-10 flex items-center gap-2 sm:gap-3 group-hover:opacity-0 transition-opacity duration-300">
                           <Zap className="w-4 h-4" />
                           Praticar agora
                           <span className="text-xl sm:text-2xl leading-none">
@@ -296,8 +296,8 @@ function Home() {
                             <div>
                               <span className="text-white block mb-1 text-xs sm:text-sm">
                                 {isCorrect
-                                  ? "✓ RESPOSTA CORRETA"
-                                  : "✗ RESPOSTA INCORRETA"}
+                                  ? "RESPOSTA CORRETA"
+                                  : "RESPOSTA INCORRETA"}
                               </span>
                               <span className="text-silver text-xs">
                                 {isCorrect
@@ -401,7 +401,6 @@ function Home() {
         </section>
 
         {/* ─── CTA Section ─── */}
-        {/* CORREÇÃO: typo "x-6" → "px-4 sm:px-6" */}
         <section className="relative bg-navy-950 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
             {!usuario.token ? (
@@ -424,7 +423,6 @@ function Home() {
                       sua aprovação. Não fique para trás.
                     </p>
 
-                    {/* Botões: coluna em mobile, linha em sm+ */}
                     <div className="flex flex-col sm:flex-row gap-4 pt-2">
                       <Link
                         to="/register"

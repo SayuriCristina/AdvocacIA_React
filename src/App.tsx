@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
+import { useEffect } from "react"
 import Footer from "./components/layout/Footer"
 import Navbar from "./components/layout/Navbar"
 import Home from "./pages/Home/Home"
@@ -11,6 +12,16 @@ import QuizForm from "./pages/QuizForm/quizForm"
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify"
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+
+  return null
+}
+
 function App() {
   return (
 
@@ -18,6 +29,7 @@ function App() {
       <AuthProvider>
         <ToastContainer />
         <BrowserRouter>
+          <ScrollToTop />
           <div className="flex flex-col min-h-screen bg-linear-to-br from-blue-50 via-white to-blue-50">
             <Navbar />
 

@@ -12,7 +12,7 @@ function Footer() {
                     <div className="max-w-7xl mx-auto">
                         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                             <div className="flex items-center gap-3">
-                                <div className="bg-linear-to-br from-navy-800 to-navy-900 p-2 rounded-lg">
+                                <div className="bg-linear-to-br from-navy-800 to-navy-900 p-2 rounded-full">
                                     <BookMarked className="w-6 h-6 text-gold-light z-100" />
                                 </div>
                                 <span className="text-xl font-semibold font-title">Advocac<span className="text-gold-light">IA</span></span>
